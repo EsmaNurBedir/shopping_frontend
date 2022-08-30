@@ -1,0 +1,49 @@
+<!-- <table class="table table-success table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>CategoryId</th>
+            <th>Ürün Adı</th>
+            <th>Stok</th>
+            <th>Fiyat</th>
+            <th>Açıklama</th>                
+        </tr>
+      <tr *ngFor="let product of products">
+        <th scope="col">{{product.productId}}</th>
+        <th scope="col">{{product.categoryId}}</th>
+        <th scope="col">{{product.productName}}</th>
+        <th scope="col">{{product.unitsInStock}}</th>
+        <th scope="col">{{product.unitPrice}}</th>
+        <th scope="col">{{product.description}}</th>
+    </tr>
+    </thead>   
+</table>  -->
+<h3 *ngIf="products; else noProduct">{{title}}</h3>
+<div class="mb-3"> 
+    <label for="filterText" class="form-label">Ürün Ara</label>
+    <input type="text" [(ngModel)]="filterText" class="form-control border-success"
+    id="filterText"
+    placeholder="Ürün giriniz..."
+    />
+</div>
+<div *ngIf="filterText" class="alert alert-success">
+{{filterText}} aradınız.
+</div>
+
+<div class="row"> 
+    <ng-template #noProduct>
+        <div class="alert alert-success" role="alert">
+            bu kategoride ürün yoktur!
+        </div>
+    </ng-template> 
+    
+<div *ngFor="let product of products  "  class="card text-bg-dark mb-3" style="width: 18rem; padding-left: 100;">
+
+    <img src="https://cdn.pixabay.com/photo/2016/02/24/01/52/butterfly-1218884_960_720.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+    <h5 class="card-title ">{{product.productName }}  {{product.unitPrice | currency}}</h5>
+    <p class="card-text">{{product.description}}</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>   
+    </div>
+</div>    
+</div>

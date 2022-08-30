@@ -1,0 +1,13 @@
+<!-- <ul class="list-group list-group-flush">
+  <li *ngFor="let color of colors" class="list-group-item">{{color.colorName}}</li>
+</ul> -->
+<table class="table table-success table-striped">
+    <thead>
+      <tr>
+            <th>RENKLER</th>               
+      </tr>
+        <tr *ngFor="let color of colors">
+        <th scope="col">{{color.colorName}}</th>
+    </tr>
+    </thead>   
+</table>
